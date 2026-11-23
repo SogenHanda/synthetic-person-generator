@@ -1,0 +1,351 @@
+{
+  "count": 10,
+  "seed": 20261124,
+  "face_seed_start": 24410,
+  "output_size": 384,
+  "output_format": "jpg",
+  "as_of": "2026-11-24",
+  "opaque_ids": true,
+  "profile_view": "clean-v1",
+  "profiles": {
+    "mode": "local"
+  },
+  "diffusion": {
+    "repository": "SG161222/RealVisXL_V5.0",
+    "directory": "models/realvisxl-v5",
+    "revision": "ac93e0dda1f6d448cae19bbfab8c5e720a5e48bc",
+    "size": 1024,
+    "steps": 35,
+    "guidance_scale": 4.0
+  },
+  "portrait_specs": [
+    {
+      "age": 24,
+      "presentation": "woman",
+      "background": "white",
+      "appearance": "straight dark bob haircut, no makeup",
+      "clothes": "a navy suit jacket and white shirt",
+      "capture_style": "lived-in-v1",
+      "pose": "head turned slightly left, eyes near camera",
+      "skin": "mild acne marks, uneven skin",
+      "lighting": "fluorescent booth light",
+      "photo_age": 23,
+      "years_before_reference": 1,
+      "finish": {
+        "effective_size": 320,
+        "camera_jpeg_quality": 78,
+        "delivery_jpeg_quality": 82,
+        "softness": 0.12,
+        "grain": 1.4,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          1,
+          0,
+          -1
+        ],
+        "saturation": 0.96,
+        "brightness": 1.0,
+        "contrast": 0.96,
+        "black_lift": 0,
+        "vignette": 0.025,
+        "scan_angle": -0.4
+      }
+    },
+    {
+      "age": 27,
+      "presentation": "man",
+      "background": "light blue",
+      "appearance": "short black hair, slight natural facial asymmetry",
+      "clothes": "a dark suit, white shirt and striped tie",
+      "capture_style": "lived-in-v1",
+      "pose": "head turned ten degrees right",
+      "skin": "slight acne scars, oily forehead",
+      "lighting": "compact camera flash",
+      "photo_age": 23,
+      "years_before_reference": 4,
+      "finish": {
+        "effective_size": 256,
+        "camera_jpeg_quality": 64,
+        "delivery_jpeg_quality": 68,
+        "softness": 0.2,
+        "grain": 2.1,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          3,
+          1,
+          -3
+        ],
+        "saturation": 0.9,
+        "brightness": 0.98,
+        "contrast": 0.96,
+        "black_lift": 1.2,
+        "vignette": 0.025,
+        "scan_angle": 0.7
+      }
+    },
+    {
+      "age": 35,
+      "presentation": "woman",
+      "background": "light blue",
+      "appearance": "shoulder-length black hair, minimal makeup",
+      "clothes": "a grey business jacket and blouse",
+      "capture_style": "lived-in-v1",
+      "pose": "three-quarter view, face angled left, eyes near camera",
+      "skin": "dry skin, small blemishes",
+      "lighting": "uneven office light",
+      "photo_age": 33,
+      "years_before_reference": 2,
+      "finish": {
+        "effective_size": 384,
+        "camera_jpeg_quality": 82,
+        "delivery_jpeg_quality": 86,
+        "softness": 0.18,
+        "grain": 1.2,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          0,
+          1,
+          1
+        ],
+        "saturation": 0.94,
+        "brightness": 0.97,
+        "contrast": 0.96,
+        "black_lift": 0,
+        "vignette": 0.025,
+        "scan_angle": 0.0
+      },
+      "view_emphasis": "off-angle",
+      "guidance_scale": 6.0
+    },
+    {
+      "age": 39,
+      "presentation": "man",
+      "background": "white",
+      "appearance": "short dark hair, thin rectangular eyeglasses",
+      "clothes": "a navy suit, white shirt and plain tie",
+      "capture_style": "lived-in-v1",
+      "pose": "head turned slightly left",
+      "skin": "uneven skin, faint shaving shadow",
+      "lighting": "old photo booth flash",
+      "photo_age": 33,
+      "years_before_reference": 6,
+      "finish": {
+        "effective_size": 280,
+        "camera_jpeg_quality": 66,
+        "delivery_jpeg_quality": 70,
+        "softness": 0.28,
+        "grain": 2.4,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          4,
+          2,
+          -4
+        ],
+        "saturation": 0.85,
+        "brightness": 1.01,
+        "contrast": 0.96,
+        "black_lift": 1.2,
+        "vignette": 0.025,
+        "scan_angle": -0.6
+      }
+    },
+    {
+      "age": 46,
+      "presentation": "woman",
+      "background": "white",
+      "appearance": "medium-length dark hair, natural skin, no makeup",
+      "clothes": "a plain dark cardigan",
+      "capture_style": "lived-in-v1",
+      "pose": "almost frontal, slightly off center",
+      "skin": "visible pores, mild redness",
+      "lighting": "flat office fluorescent light",
+      "photo_age": 46,
+      "years_before_reference": 0,
+      "finish": {
+        "effective_size": 360,
+        "camera_jpeg_quality": 80,
+        "delivery_jpeg_quality": 84,
+        "softness": 0.12,
+        "grain": 1.6,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          -1,
+          1,
+          2
+        ],
+        "saturation": 0.98,
+        "brightness": 1.02,
+        "contrast": 0.96,
+        "black_lift": 0,
+        "vignette": 0.025,
+        "scan_angle": 0.0
+      }
+    },
+    {
+      "age": 49,
+      "presentation": "man",
+      "background": "light blue",
+      "appearance": "slightly receding short black hair, mild under-eye bags",
+      "clothes": "a charcoal suit and white shirt",
+      "capture_style": "lived-in-v1",
+      "pose": "three-quarter view, face angled right, gaze slightly aside",
+      "skin": "rough skin, pitted acne scars",
+      "lighting": "direct camera flash",
+      "photo_age": 44,
+      "years_before_reference": 5,
+      "finish": {
+        "effective_size": 240,
+        "camera_jpeg_quality": 60,
+        "delivery_jpeg_quality": 64,
+        "softness": 0.3,
+        "grain": 2.6,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          2,
+          0,
+          -3
+        ],
+        "saturation": 0.88,
+        "brightness": 0.96,
+        "contrast": 0.96,
+        "black_lift": 1.2,
+        "vignette": 0.025,
+        "scan_angle": 0.5
+      },
+      "view_emphasis": "off-angle",
+      "guidance_scale": 6.0
+    },
+    {
+      "age": 57,
+      "presentation": "woman",
+      "background": "light blue",
+      "appearance": "short black hair with a few grey strands, natural skin",
+      "clothes": "a simple beige jacket and blouse",
+      "capture_style": "lived-in-v1",
+      "pose": "slight head tilt to the left",
+      "skin": "mild sun spots, uneven skin tone",
+      "lighting": "uneven photo booth light",
+      "photo_age": 50,
+      "years_before_reference": 7,
+      "finish": {
+        "effective_size": 300,
+        "camera_jpeg_quality": 68,
+        "delivery_jpeg_quality": 72,
+        "softness": 0.22,
+        "grain": 2.0,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          4,
+          2,
+          -3
+        ],
+        "saturation": 0.83,
+        "brightness": 0.99,
+        "contrast": 0.96,
+        "black_lift": 1.2,
+        "vignette": 0.025,
+        "scan_angle": -0.8
+      }
+    },
+    {
+      "age": 61,
+      "presentation": "man",
+      "background": "white",
+      "appearance": "short salt-and-pepper hair, slight facial asymmetry",
+      "clothes": "a dark business suit and tie",
+      "capture_style": "lived-in-v1",
+      "pose": "head turned slightly right",
+      "skin": "coarse pores, wrinkles",
+      "lighting": "small compact camera flash",
+      "photo_age": 58,
+      "years_before_reference": 3,
+      "finish": {
+        "effective_size": 320,
+        "camera_jpeg_quality": 74,
+        "delivery_jpeg_quality": 78,
+        "softness": 0.2,
+        "grain": 1.8,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          1,
+          0,
+          -2
+        ],
+        "saturation": 0.93,
+        "brightness": 1.0,
+        "contrast": 0.96,
+        "black_lift": 0,
+        "vignette": 0.025,
+        "scan_angle": 0.3
+      }
+    },
+    {
+      "age": 68,
+      "presentation": "woman",
+      "background": "white",
+      "appearance": "short greying hair, natural skin",
+      "clothes": "a plain brown cardigan",
+      "capture_style": "lived-in-v1",
+      "pose": "three-quarter view, head tilted left, eyes near camera",
+      "skin": "age spots, dry skin, wrinkles",
+      "lighting": "old photo booth lighting",
+      "photo_age": 60,
+      "years_before_reference": 8,
+      "finish": {
+        "effective_size": 256,
+        "camera_jpeg_quality": 62,
+        "delivery_jpeg_quality": 66,
+        "softness": 0.32,
+        "grain": 2.5,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          5,
+          2,
+          -5
+        ],
+        "saturation": 0.82,
+        "brightness": 1.02,
+        "contrast": 0.96,
+        "black_lift": 1.2,
+        "vignette": 0.025,
+        "scan_angle": -0.5
+      },
+      "view_emphasis": "off-angle",
+      "guidance_scale": 6.0
+    },
+    {
+      "age": 72,
+      "presentation": "man",
+      "background": "light blue",
+      "appearance": "short grey hair, a receding hairline",
+      "clothes": "a worn dark suit and white shirt",
+      "capture_style": "lived-in-v1",
+      "pose": "head turned slightly left",
+      "skin": "age spots, coarse skin, wrinkles",
+      "lighting": "uneven fluorescent lighting",
+      "photo_age": 67,
+      "years_before_reference": 5,
+      "finish": {
+        "effective_size": 300,
+        "camera_jpeg_quality": 72,
+        "delivery_jpeg_quality": 76,
+        "softness": 0.22,
+        "grain": 2.1,
+        "chroma_noise": 0.35,
+        "color_shift": [
+          1,
+          1,
+          -1
+        ],
+        "saturation": 0.89,
+        "brightness": 0.97,
+        "contrast": 0.96,
+        "black_lift": 1.2,
+        "vignette": 0.025,
+        "scan_angle": 0.6
+      }
+    }
+  ],
+  "photo_finish": true,
+  "capture_comparison": true
+}

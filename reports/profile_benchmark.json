@@ -1,0 +1,21 @@
+{
+  "engine": "local structured generator v1",
+  "results": [
+    {
+      "count": 100,
+      "generation_seconds": 0.003822,
+      "profiles_per_second": 26160.9,
+      "unique_numbers": true,
+      "mynumber_and_card_checksums": "all intentionally invalid",
+      "scope": "dictionary-based profiles only; no images, export, disk persistence, or LLM calls"
+    },
+    {
+      "count": 10000,
+      "generation_seconds": 0.368511,
+      "profiles_per_second": 27136.3,
+      "unique_numbers": true,
+      "mynumber_and_card_checksums": "all intentionally invalid",
+      "scope": "dictionary-based profiles only; no images, export, disk persistence, or LLM calls"
+    }
+  ]
+}

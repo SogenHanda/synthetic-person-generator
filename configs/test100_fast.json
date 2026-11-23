@@ -1,0 +1,25 @@
+{
+  "count": 100,
+  "seed": 20261123,
+  "face_seed_start": 1000,
+  "output_size": 512,
+  "as_of": "2026-11-24",
+  "stylegan": {
+    "repository": "vendor/stylegan2-ada-pytorch",
+    "weights": "models/stylegan2/ffhq.pkl",
+    "ops": "reference",
+    "truncation_psi": 0.85
+  },
+  "qwen": {
+    "model": "Qwen3-14B-Q6_K.gguf",
+    "model_path": "models/qwen/Qwen3-14B-Q6_K.gguf",
+    "revision": "530227a7d994db8eca5ab5ced2fb692b614357fd",
+    "endpoint": "http://127.0.0.1:8765",
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 1024
+  },
+  "profiles": {
+    "mode": "local"
+  }
+}

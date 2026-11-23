@@ -1,0 +1,16 @@
+.venv/
+vendor/
+models/
+tools/
+outputs/
+work/
+__pycache__/
+*.pyc
+*.part
+.env
+.env.*
+!.env.example
+deliverables/
+transfer/
+*.log
+reports/test100_age_direction.json

@@ -1,0 +1,8 @@
+{
+  "sample_count": 29,
+  "old_nearest_median": 0.6162112951278687,
+  "new_nearest_median": 0.5795674324035645,
+  "new_max_pair": 0.6996294856071472,
+  "approved10_max_pair": 0.6996294856071472,
+  "rejected_candidates": 1
+}

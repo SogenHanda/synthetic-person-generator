@@ -1,0 +1,17 @@
+{
+  "count":10,"seed":20261124,"face_seed_start":24410,"output_size":1024,"output_format":"png","as_of":"2026-11-24",
+  "opaque_ids":true,"profile_view":"clean-v1","profiles":{"mode":"local"},
+  "diffusion":{"repository":"SG161222/RealVisXL_V5.0","directory":"models/realvisxl-v5","revision":"ac93e0dda1f6d448cae19bbfab8c5e720a5e48bc","size":1024,"steps":35,"guidance_scale":4.5},
+  "portrait_specs":[
+    {"age":24,"presentation":"woman","background":"white","appearance":"straight dark bob haircut, no makeup","clothes":"a plain navy blouse"},
+    {"age":27,"presentation":"man","background":"light blue","appearance":"short black hair, slight natural facial asymmetry","clothes":"a plain light grey collared shirt"},
+    {"age":35,"presentation":"woman","background":"light blue","appearance":"shoulder-length black hair, minimal makeup","clothes":"a simple beige cardigan"},
+    {"age":39,"presentation":"man","background":"white","appearance":"short dark hair, thin rectangular eyeglasses","clothes":"a plain blue shirt"},
+    {"age":46,"presentation":"woman","background":"white","appearance":"medium-length dark hair, natural skin, no makeup","clothes":"a simple dark green blouse"},
+    {"age":49,"presentation":"man","background":"light blue","appearance":"slightly receding short black hair, mild under-eye bags","clothes":"a grey polo shirt"},
+    {"age":57,"presentation":"woman","background":"light blue","appearance":"short black hair with a few grey strands, natural skin","clothes":"a plain brown cardigan"},
+    {"age":61,"presentation":"man","background":"white","appearance":"short salt-and-pepper hair, slight facial asymmetry","clothes":"a simple navy collared shirt"},
+    {"age":68,"presentation":"woman","background":"white","appearance":"short greying hair, natural skin","clothes":"a plain light grey blouse"},
+    {"age":72,"presentation":"man","background":"light blue","appearance":"short grey hair, a receding hairline","clothes":"a simple dark brown cardigan"}
+  ]
+}

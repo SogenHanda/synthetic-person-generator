@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "synthetic-person-batch person v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","person_id","batch_id","face_path","name","birth_date","address","personal_number","payment_number","generated_at","synthetic"],
+  "properties": {
+    "schema_version": {"const":1,"type":"integer"},
+    "person_id":{"type":"string","minLength":1},
+    "batch_id":{"type":"string","minLength":1},
+    "face_path":{"type":"string","pattern":"^faces/[A-Za-z0-9_-]+\\.(jpg|png)$"},
+    "name":{"type":"string","minLength":1},
+    "birth_date":{"type":"string","format":"date"},
+    "address":{"type":"string","minLength":1},
+    "personal_number":{"type":"string","pattern":"^(TEST-.+|[0-9]{12})$"},
+    "payment_number":{"type":"string","pattern":"^(TEST-.+|[0-9]{16})$"},
+    "generated_at":{"type":"string","format":"date-time","pattern":"Z$"},
+    "synthetic":{"const":true,"type":"boolean"}
+  }
+}

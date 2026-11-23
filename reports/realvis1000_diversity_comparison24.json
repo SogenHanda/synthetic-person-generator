@@ -1,0 +1,9 @@
+{
+  "same_24_profile_positions": true,
+  "sample_count": 24,
+  "old_nearest_median": 0.6319620609283447,
+  "new_nearest_median": 0.5653060674667358,
+  "old_max_pair": 0.7357988357543945,
+  "new_max_pair": 0.6493030786514282,
+  "threshold": 0.65
+}
