@@ -17,6 +17,8 @@
 
 コードはGit、原本・生成状態・完成データは同じ**非公開リポジトリのRelease**で配布します。GitHubの自動生成「Source code」ZIPだけには原本・データセットは入っていません。
 
+[完成500人と移行用ファイルのダウンロード](https://github.com/SogenHanda/newmedia-synthetic-people/releases/tag/checkpoint-500-20261124)。アップロード後の全添付ファイルのSHA-256がローカルと一致することを確認しています。検証記録は`reports/github_delivery_verified.json`です。
+
 ## RTX 4090のPCへ移す：Windows / PowerShell
 
 前提はWindows 10/11、NVIDIAドライバー、Python **3.10 x64**、Git、GitHub CLIです。32GB以上のRAM、空きSSDは30GB以上を目安にしてください。CUDA対応PyTorchを使用するため、通常はCUDA Toolkitの別途インストールは不要です。実動作確認はRTX 4070 Ti / 12GBで行っています。4090での実測は未実施です。

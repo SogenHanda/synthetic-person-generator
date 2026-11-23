@@ -1,0 +1,32 @@
+{
+  "repository": "https://github.com/SogenHanda/newmedia-synthetic-people",
+  "private": true,
+  "release": "https://github.com/SogenHanda/newmedia-synthetic-people/releases/tag/checkpoint-500-20261124",
+  "all_remote_asset_hashes_match_local": true,
+  "assets": [
+    {
+      "name": "checkpoint500.parts.json",
+      "size": 483,
+      "digest": "sha256:ec5618612b9a73e84dbe794e41f5e07be70e57befa206def907bb43d87cdbbfc",
+      "state": "uploaded"
+    },
+    {
+      "name": "checkpoint500.zip.part001",
+      "size": 536870912,
+      "digest": "sha256:32930894886009c9dbe22e11ce9cdbec3148ac529e5c3942054d390dfd2eae99",
+      "state": "uploaded"
+    },
+    {
+      "name": "checkpoint500.zip.part002",
+      "size": 162762425,
+      "digest": "sha256:49fc03e06a1eadf845f7b7c2afc3449dc56a943a8d88c62b1767fe6802cdf053",
+      "state": "uploaded"
+    },
+    {
+      "name": "people_500.zip",
+      "size": 4917616,
+      "digest": "sha256:1a872a69b143de90795ec6900ea12acfdbca4f656ee44a8990341a5435e8933d",
+      "state": "uploaded"
+    }
+  ]
+}
