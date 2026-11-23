@@ -1,0 +1,14 @@
+{
+  "realvis500_checkpoint": {
+    "target": 500,
+    "accepted": 500,
+    "status": "complete",
+    "config_and_original_hashes_verified": true
+  },
+  "realvis1000_diverse": {
+    "target": 1000,
+    "accepted": 500,
+    "status": "paused",
+    "config_and_original_hashes_verified": true
+  }
+}

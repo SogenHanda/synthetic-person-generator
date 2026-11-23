@@ -1,0 +1,66 @@
+{
+  "people": 500,
+  "all_single_faces": true,
+  "unique_original_hashes": true,
+  "maximum_pair_cosine": 0.6498761177062988,
+  "screen_threshold": 0.65,
+  "scope": "Synthetic faces only; not proof of separate real identities.",
+  "age_cohorts": [
+    {
+      "min": 6,
+      "max": 15,
+      "count": 5,
+      "actual": 5
+    },
+    {
+      "min": 16,
+      "max": 19,
+      "count": 35,
+      "actual": 35
+    },
+    {
+      "min": 20,
+      "max": 29,
+      "count": 85,
+      "actual": 85
+    },
+    {
+      "min": 30,
+      "max": 39,
+      "count": 90,
+      "actual": 90
+    },
+    {
+      "min": 40,
+      "max": 49,
+      "count": 90,
+      "actual": 90
+    },
+    {
+      "min": 50,
+      "max": 59,
+      "count": 80,
+      "actual": 80
+    },
+    {
+      "min": 60,
+      "max": 69,
+      "count": 60,
+      "actual": 60
+    },
+    {
+      "min": 70,
+      "max": 79,
+      "count": 40,
+      "actual": 40
+    },
+    {
+      "min": 80,
+      "max": 89,
+      "count": 15,
+      "actual": 15
+    }
+  ],
+  "birth_dates_match_age_specs": true,
+  "rejected_candidates": 1073
+}

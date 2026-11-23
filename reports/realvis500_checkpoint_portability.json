@@ -1,0 +1,9 @@
+{
+  "people": 500,
+  "images": 500,
+  "html_images": 500,
+  "all_paths_relative": true,
+  "unique_names_and_numbers_contacts": true,
+  "unique_image_hashes": true,
+  "relocation_verified": true
+}
