@@ -1,0 +1,506 @@
+{
+  "count": 10,
+  "seed": 42,
+  "face_seed_start": 42000,
+  "output_size": 480,
+  "output_format": "jpg",
+  "as_of": "2026-01-01",
+  "opaque_ids": true,
+  "profile_view": "clean-v1",
+  "profiles": {
+    "mode": "local"
+  },
+  "diffusion": {
+    "repository": "SG161222/RealVisXL_V5.0",
+    "directory": "models/realvisxl-v5",
+    "revision": "ac93e0dda1f6d448cae19bbfab8c5e720a5e48bc",
+    "size": 1024,
+    "steps": 35,
+    "guidance_scale": 5.0
+  },
+  "portrait_specs": [
+    {
+      "age": 24,
+      "presentation": "woman",
+      "background": "white",
+      "appearance": "short cropped hair",
+      "clothes": "navy suit",
+      "capture_style": "diverse-v3",
+      "skin": "acne scars, oily blotchy skin",
+      "lighting": "fluorescent light",
+      "photo_age": 23,
+      "years_before_reference": 1,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.22,
+        "grain": 3.9,
+        "chroma_noise": 0.65,
+        "color_shift": [
+          3,
+          1,
+          -4
+        ],
+        "saturation": 0.87,
+        "brightness": 0.98,
+        "contrast": 0.93,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": -1.8,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 384,
+        "delivery_jpeg_quality": 44,
+        "frame_crop": [
+          0.01,
+          0.005,
+          0.95,
+          0.945
+        ]
+      },
+      "eyes": "small hooded eyes",
+      "face_structure": "round full face",
+      "nose": "broad flat nose",
+      "mouth": "full lips",
+      "brows": "thick straight brows",
+      "accessory": "no glasses"
+    },
+    {
+      "age": 27,
+      "presentation": "man",
+      "background": "light blue",
+      "appearance": "buzz cut",
+      "clothes": "dark suit and tie",
+      "capture_style": "diverse-v3",
+      "skin": "pitted acne scars, dark eye circles",
+      "lighting": "direct flash",
+      "photo_age": 23,
+      "years_before_reference": 4,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.35,
+        "grain": 5.85,
+        "chroma_noise": 1.105,
+        "color_shift": [
+          5,
+          2,
+          -5
+        ],
+        "saturation": 0.78,
+        "brightness": 0.94,
+        "contrast": 0.89,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": 2.0,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 256,
+        "delivery_jpeg_quality": 30,
+        "frame_crop": [
+          0.085,
+          0.01,
+          0.985,
+          0.91
+        ]
+      },
+      "eyes": "wide-set eyes",
+      "face_structure": "long narrow face",
+      "nose": "long prominent nose",
+      "mouth": "thin tight lips",
+      "brows": "sparse eyebrows",
+      "accessory": "wire glasses"
+    },
+    {
+      "age": 35,
+      "presentation": "woman",
+      "background": "light blue",
+      "appearance": "tied-back hair",
+      "clothes": "grey business jacket",
+      "capture_style": "diverse-v3",
+      "skin": "rough dry skin, tired eye bags",
+      "lighting": "office light",
+      "photo_age": 33,
+      "years_before_reference": 2,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.18,
+        "grain": 3.25,
+        "chroma_noise": 0.52,
+        "color_shift": [
+          0,
+          2,
+          1
+        ],
+        "saturation": 0.91,
+        "brightness": 1.0,
+        "contrast": 0.96,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": -0.6,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 480,
+        "delivery_jpeg_quality": 52,
+        "frame_crop": [
+          0.005,
+          0.015,
+          0.975,
+          0.985
+        ]
+      },
+      "eyes": "round open eyes",
+      "face_structure": "square angular jaw",
+      "nose": "short rounded nose",
+      "mouth": "small mouth",
+      "brows": "arched eyebrows",
+      "accessory": "thick glasses"
+    },
+    {
+      "age": 39,
+      "presentation": "man",
+      "background": "white",
+      "appearance": "curly short hair",
+      "clothes": "navy suit and tie",
+      "capture_style": "diverse-v3",
+      "skin": "enlarged pores, shaving rash",
+      "lighting": "booth flash",
+      "photo_age": 33,
+      "years_before_reference": 6,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.4,
+        "grain": 4.875,
+        "chroma_noise": 0.845,
+        "color_shift": [
+          4,
+          2,
+          -5
+        ],
+        "saturation": 0.82,
+        "brightness": 1.02,
+        "contrast": 0.91,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": 1.4,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 320,
+        "delivery_jpeg_quality": 36,
+        "frame_crop": [
+          0.005,
+          0.08,
+          0.915,
+          0.99
+        ]
+      },
+      "eyes": "round open eyes",
+      "face_structure": "round full face",
+      "nose": "wide low nose",
+      "mouth": "wide mouth",
+      "brows": "low heavy brows",
+      "accessory": "no glasses"
+    },
+    {
+      "age": 46,
+      "presentation": "woman",
+      "background": "white",
+      "appearance": "wavy shoulder-length hair",
+      "clothes": "dark cardigan",
+      "capture_style": "diverse-v3",
+      "skin": "deep eye bags, mottled skin",
+      "lighting": "fluorescent light",
+      "photo_age": 46,
+      "years_before_reference": 0,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.23,
+        "grain": 4.225,
+        "chroma_noise": 0.715,
+        "color_shift": [
+          -2,
+          2,
+          3
+        ],
+        "saturation": 0.89,
+        "brightness": 0.96,
+        "contrast": 0.92,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": -0.9,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 416,
+        "delivery_jpeg_quality": 46,
+        "frame_crop": [
+          0.045,
+          0.005,
+          0.995,
+          0.955
+        ]
+      },
+      "eyes": "close-set eyes",
+      "face_structure": "long narrow face",
+      "nose": "narrow straight nose",
+      "mouth": "thin tight lips",
+      "brows": "arched eyebrows",
+      "accessory": "rimless glasses"
+    },
+    {
+      "age": 49,
+      "presentation": "man",
+      "background": "light blue",
+      "appearance": "balding head",
+      "clothes": "charcoal suit",
+      "capture_style": "diverse-v3",
+      "skin": "pitted scars, forehead wrinkles",
+      "lighting": "direct flash",
+      "photo_age": 44,
+      "years_before_reference": 5,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.42,
+        "grain": 6.5,
+        "chroma_noise": 1.3,
+        "color_shift": [
+          4,
+          0,
+          -4
+        ],
+        "saturation": 0.76,
+        "brightness": 0.95,
+        "contrast": 0.88,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": 1.8,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 240,
+        "delivery_jpeg_quality": 27,
+        "frame_crop": [
+          0.01,
+          0.035,
+          0.89,
+          0.915
+        ]
+      },
+      "eyes": "small hooded eyes",
+      "face_structure": "wide jaw, narrow forehead",
+      "nose": "short rounded nose",
+      "mouth": "full lips",
+      "brows": "thick straight brows",
+      "accessory": "no glasses"
+    },
+    {
+      "age": 57,
+      "presentation": "woman",
+      "background": "light blue",
+      "appearance": "short grey hair",
+      "clothes": "beige jacket",
+      "capture_style": "diverse-v3",
+      "skin": "sun spots, coarse wrinkles",
+      "lighting": "booth light",
+      "photo_age": 50,
+      "years_before_reference": 7,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.32,
+        "grain": 5.2,
+        "chroma_noise": 0.91,
+        "color_shift": [
+          6,
+          3,
+          -6
+        ],
+        "saturation": 0.77,
+        "brightness": 1.01,
+        "contrast": 0.89,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": -1.5,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 288,
+        "delivery_jpeg_quality": 33,
+        "frame_crop": [
+          0.075,
+          0.015,
+          0.995,
+          0.935
+        ]
+      },
+      "eyes": "downturned eyes",
+      "face_structure": "triangular face, pointed chin",
+      "nose": "narrow straight nose",
+      "mouth": "wide mouth",
+      "brows": "sparse eyebrows",
+      "accessory": "wire glasses"
+    },
+    {
+      "age": 61,
+      "presentation": "man",
+      "background": "white",
+      "appearance": "side-parted grey hair",
+      "clothes": "dark suit and tie",
+      "capture_style": "diverse-v3",
+      "skin": "weathered skin, deep forehead creases",
+      "lighting": "compact camera flash",
+      "photo_age": 58,
+      "years_before_reference": 3,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.2,
+        "grain": 3.575,
+        "chroma_noise": 0.585,
+        "color_shift": [
+          2,
+          0,
+          -3
+        ],
+        "saturation": 0.87,
+        "brightness": 0.98,
+        "contrast": 0.94,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": 0.5,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 448,
+        "delivery_jpeg_quality": 49,
+        "frame_crop": [
+          0.008,
+          0.003,
+          0.988,
+          0.983
+        ]
+      },
+      "eyes": "wide-set eyes",
+      "face_structure": "oval face, prominent chin",
+      "nose": "long prominent nose",
+      "mouth": "small mouth",
+      "brows": "thick straight brows",
+      "accessory": "no glasses"
+    },
+    {
+      "age": 68,
+      "presentation": "woman",
+      "background": "white",
+      "appearance": "short grey hair",
+      "clothes": "brown cardigan",
+      "capture_style": "diverse-v3",
+      "skin": "age spots, sagging wrinkled skin",
+      "lighting": "old booth light",
+      "photo_age": 60,
+      "years_before_reference": 8,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.48,
+        "grain": 6.175,
+        "chroma_noise": 1.17,
+        "color_shift": [
+          7,
+          3,
+          -6
+        ],
+        "saturation": 0.73,
+        "brightness": 1.03,
+        "contrast": 0.87,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": 1.1,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 272,
+        "delivery_jpeg_quality": 31,
+        "frame_crop": [
+          0.015,
+          0.08,
+          0.915,
+          0.98
+        ]
+      },
+      "eyes": "small hooded eyes",
+      "face_structure": "round full face",
+      "nose": "wide low nose",
+      "mouth": "full lips",
+      "brows": "sparse eyebrows",
+      "accessory": "round glasses"
+    },
+    {
+      "age": 72,
+      "presentation": "man",
+      "background": "light blue",
+      "appearance": "bald head",
+      "clothes": "worn dark suit",
+      "capture_style": "diverse-v3",
+      "skin": "coarse wrinkles, mottled age spots",
+      "lighting": "fluorescent light",
+      "photo_age": 67,
+      "years_before_reference": 5,
+      "finish": {
+        "effective_size": 1024,
+        "softness": 0.3,
+        "grain": 4.55,
+        "chroma_noise": 0.78,
+        "color_shift": [
+          2,
+          2,
+          -2
+        ],
+        "saturation": 0.83,
+        "brightness": 0.97,
+        "contrast": 0.91,
+        "black_lift": 2.0,
+        "vignette": 0.045,
+        "scan_angle": -1.7,
+        "camera_jpeg_enabled": false,
+        "delivery_size": 352,
+        "delivery_jpeg_quality": 40,
+        "frame_crop": [
+          0.055,
+          0.01,
+          0.995,
+          0.95
+        ]
+      },
+      "eyes": "close-set eyes",
+      "face_structure": "square angular jaw",
+      "nose": "broad flat nose",
+      "mouth": "thin tight lips",
+      "brows": "low heavy brows",
+      "accessory": "thick glasses"
+    }
+  ],
+  "photo_finish": true,
+  "capture_comparison": false,
+  "portable": true,
+  "face_diversity": {
+    "threshold": 0.65,
+    "max_attempts": 80,
+    "retry_strategy": "morphology-capture-v4"
+  },
+  "age_distribution": {
+    "purpose": "Example preset; not population statistics",
+    "groups": [
+      {
+        "min": 20,
+        "max": 29,
+        "count": 2
+      },
+      {
+        "min": 30,
+        "max": 39,
+        "count": 2
+      },
+      {
+        "min": 40,
+        "max": 49,
+        "count": 2
+      },
+      {
+        "min": 50,
+        "max": 59,
+        "count": 1
+      },
+      {
+        "min": 60,
+        "max": 69,
+        "count": 2
+      },
+      {
+        "min": 70,
+        "max": 79,
+        "count": 1
+      }
+    ]
+  }
+}

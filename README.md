@@ -1,50 +1,44 @@
-# 合成人物データセット — RealVisXL
+# Synthetic Person Generator
 
-作品用の合成顔写真と人物情報をローカル生成するプロジェクトです。現在はRealVisXL V5.0を使用しています。StyleGANとQwenの実験もコード・設定・[履歴](docs/HISTORY.md)に残しています。人物情報は現在、高速なローカル生成を使用し、Qwenサーバーは不要です。
+顔写真と人物プロフィールをローカル生成し、CSV・JSONL・閲覧用HTML・画像フォルダ・ZIPにまとめるPythonツールです。テストデータ、プロトタイプ、デモ用データセットの作成に利用できます。
 
-## 500人の完成データと停止位置
+画像生成にはRealVisXL V5.0、プロフィールにはローカルの辞書・テンプレートを使用します。顔の類似候補を除外し、解像度・JPEG品質・肌の質感・構図にばらつきを持たせられます。生成状態を保存するため、中断後も採用済み画像を再利用して続行できます。
 
-2026年11月24日、500人分の生成・出力・検証を完了し、生成を停止しました。500人版は`work/realvis500_checkpoint/`、続きの1000人版は`work/realvis1000_diverse/`です。1000人版にも採用原本500枚を引き継ぎ、停止状態を保存しています。復元だけで画像生成が始まることはありません。
+付属プリセットは、日本語プロフィールと日本人設定の証明写真風画像です。言語・地域の変更には生成辞書やプロンプトの変更が必要です。StyleGAN / Qwenの過去の実験も含みますが、以下はRealVisXLを使う標準手順です。
 
-完成データは`deliverables/people_500/`、配布用ZIPは`deliverables/people_500.zip`です。
+## Windowsでのビルド・セットアップ
 
-- `index.html`：500人全員の写真・人物情報を一覧・検索。ブラウザーで直接開けます。
-- `profiles.csv`：人物情報18列。画像参照は`faces/person_<UUID>.jpg`という相対パスです。
-- `faces/`：写真500枚。240〜480px、JPEG品質27〜52、構図・傾き・質感を人物別に変更。
-- JSONL、管理用データ、生成条件、SHA-256マニフェストも同梱。
+ソースをcloneし、Python環境とモデルを用意して実行します。実行ファイルへのパッケージ化や、独自CUDA拡張のコンパイルは行いません。
 
-別PCやWebサイトへはフォルダ全体をコピーするか、ZIPを展開して使用してください。CSV単体では画像は移りません。番号・口座等は文字列として読み込むと先頭の0を維持できます。
+### 動作環境
 
-コードはGit、原本・生成状態・完成データは同じ**非公開リポジトリのRelease**で配布します。GitHubの自動生成「Source code」ZIPだけには原本・データセットは入っていません。
+- Windows 10 / 11、PowerShell
+- NVIDIA製CUDA対応GPUとNVIDIAドライバー（RTX 4070 Ti / VRAM 12GBで動作確認）
+- Python **3.10 x64**、Git
+- RAM 32GB、空きSSD 30GB以上を推奨。生成する人数によって保存容量は増加します。
 
-[完成500人と移行用ファイルのダウンロード](https://github.com/SogenHanda/newmedia-synthetic-people/releases/tag/checkpoint-500-20261124)。アップロード後の全添付ファイルのSHA-256がローカルと一致することを確認しています。検証記録は`reports/github_delivery_verified.json`です。
+CUDA対応PyTorchの配布wheelを使うため、通常はCUDA ToolkitやVisual Studio Build Toolsの別途導入は不要です。
 
-## RTX 4090のPCへ移す：Windows / PowerShell
+### 1. 必要なツールとソースを取得
 
-前提はWindows 10/11、NVIDIAドライバー、Python **3.10 x64**、Git、GitHub CLIです。32GB以上のRAM、空きSSDは30GB以上を目安にしてください。CUDA対応PyTorchを使用するため、通常はCUDA Toolkitの別途インストールは不要です。実動作確認はRTX 4070 Ti / 12GBで行っています。4090での実測は未実施です。
-
-Git / Python / GitHub CLIがない場合、PowerShellから導入できます。インストール後は新しいターミナルを開いてください。
+Python・Git・GitHub CLIがない場合は、PowerShellで次を実行します。インストール後はターミナルを開き直してください。
 
 ```powershell
-winget install --id Git.Git --exact
 winget install --id Python.Python.3.10 --exact
+winget install --id Git.Git --exact
 winget install --id GitHub.cli --exact
 ```
 
-### 1. 非公開リポジトリをclone
+このリポジトリは非公開です。アクセス権のあるアカウントでログインします。
 
 ```powershell
 gh auth login
-gh repo clone SogenHanda/newmedia-synthetic-people
-cd newmedia-synthetic-people
+gh repo clone SogenHanda/synthetic-person-generator
+cd synthetic-person-generator
 $env:PYTHONUTF8 = "1"
 ```
 
-GitHubへのアクセス権があるアカウントでログインします。
-
-### 2. Python環境を作成
-
-`.venv`は移植せず、このPCで作り直します。activateやPowerShellの実行ポリシー変更は不要です。
+### 2. Python環境と依存関係を構築
 
 ```powershell
 py -3.10 -m venv .venv
@@ -53,86 +47,118 @@ py -3.10 -m venv .venv
 .venv/Scripts/python.exe -c "import torch; print(torch.__version__); print('CUDA:', torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
 ```
 
-最後の表示が`CUDA: True`でRTX 4090を示すことを確認してください。Falseやエラーなら、ドライバーとPyTorchのCUDA版を確認し、生成前に解消してください。
+最後に`CUDA: True`と使用するGPU名が表示されれば、GPUを認識しています。Falseやエラーの場合はNVIDIAドライバーとPyTorchのCUDA版を確認してください。activateやPowerShellの実行ポリシー変更は不要です。
 
-### 3. 完成データと生成状態をダウンロード・復元
-
-```powershell
-gh release download checkpoint-500-20261124 --repo SogenHanda/newmedia-synthetic-people --pattern "checkpoint500.*" --dir transfer/checkpoint500
-.venv/Scripts/python.exe scripts/migration_bundle.py restore transfer/checkpoint500/checkpoint500.parts.json
-```
-
-512MiB以下の分割ファイルを、復元スクリプトが結合し、全ファイルのSHA-256を検証します。手作業で結合・展開しないでください。異なる既存ファイルがあれば上書きせず停止するため、最初は新規clone先で復元してください。
-
-復元対象は完成500人のHTML/CSV/JPEG/ZIP、採用原本500枚（1024px）、500人版と1000人版の生成状態、モデルの取得記録・ライセンスです。同じ原本は移行ZIPに一度だけ格納し、復元時に両方の作業状態へ配置します。不採用画像と過去の試作出力は含めません。種・試行記録・生成条件は状態ファイルに保存しています。
-
-```powershell
-Start-Process deliverables/people_500/index.html
-.venv/Scripts/python.exe scripts/verify_portable.py deliverables/people_500 --count 500
-.venv/Scripts/python.exe scripts/status_realvis1000.py --config configs/realvis1000_diverse.json
-```
-
-1000人版の状態は`paused`、生成済み500、目標1000です。完成500人の確認・利用だけなら、以下のモデル取得と追加生成は不要です。
-
-### 4. 画像生成モデルを公式配布元から取得
+### 3. モデルをダウンロード
 
 ```powershell
 .venv/Scripts/python.exe -u scripts/download_realvis.py
 .venv/Scripts/python.exe -u scripts/download_face_similarity.py
 ```
 
-RealVisXLは約6.5GiBです。中断時は同じコマンドで再実行できます。モデルをGitや移行ZIPに再配布せず、公式の固定リビジョンから取得し、ハッシュを検証します。
+モデルはGitには含めません。公式配布元の固定リビジョンから取得し、SHA-256を検証します。RealVisXLは約6.5GiBです。ダウンロード中断時は同じコマンドを再実行できます。
 
 | 用途 | モデル | 固定リビジョン |
 | --- | --- | --- |
 | 顔写真 | [SG161222/RealVisXL_V5.0](https://huggingface.co/SG161222/RealVisXL_V5.0) | `ac93e0dda1f6d448cae19bbfab8c5e720a5e48bc` |
-| 顔の検出・類似候補の除外 | [OpenCV Zoo YuNet / SFace](https://github.com/opencv/opencv_zoo) | `48b10fa505aeb51fbd127fc60a5c660040e823b7` |
+| 単一顔検出・類似候補の除外 | [OpenCV Zoo YuNet / SFace](https://github.com/opencv/opencv_zoo) | `48b10fa505aeb51fbd127fc60a5c660040e823b7` |
 
-RealVisXLのモデルカードにライセンス情報、OpenCVモデルのLICENSEは`models/face_similarity/*.LICENSE`にあります。各モデルの条件を確認して利用してください。
+RealVisXLの利用条件はモデルカード、OpenCVモデルのライセンスは取得後の`models/face_similarity/*.LICENSE`を参照してください。
 
-### 5. 必要なときだけ残り500人を生成
-
-**以下を実行すると1000人まで追加生成します。500人で止めておく場合は実行しません。**
+### 4. 環境を確認
 
 ```powershell
-.venv/Scripts/python.exe -X utf8 -u scripts/run_realvis1000.py --config configs/realvis1000_diverse.json
-```
-
-前景で実行され、進捗がターミナルに表示されます。採用済み原本をハッシュ検証して再利用し、未完分から再開します。同じ作業状態を二重起動しないでください。中断はCtrl+C、再開は同じコマンドです。採用済み画像・プロフィールは保存されます。類似候補を再生成するため、候補1枚の所要時間より全体の時間は長くなります。
-
-別のPowerShellで進捗を確認できます。
-
-```powershell
-.venv/Scripts/python.exe scripts/status_realvis1000.py --config configs/realvis1000_diverse.json --watch
-```
-
-完成すると`outputs/batch_20261124_015156_656d1c80/`と同名ZIPに1000人のHTML/CSV/写真が出力され、移動・展開後の参照検証まで行います。`worker_status.json`が`complete`なら完了、`failed`なら実行ターミナルのエラーを確認してください。完成500人のデータは別フォルダに保持されます。500人版と1000人版で管理用person_idは異なり、対応表を1000人版stateの`checkpoints`に保存しています。
-
-## 生成条件・人物情報
-
-1024px / 35 steps / DPM++ SDE Karras / fp16、VAEは必要時fp32へupcast。検証済みのCPU offload設定を4090でも引き継ぎます。顔の復元・美肌化・アップスケールは使いません。輪郭・鼻・口・目・眉・髪・眼鏡・服装・肌を組み合わせ、YuNetで単一顔を検出し、SFaceのコサイン類似度0.65以上の候補を再生成します。合成顔間の類似度対策であり、人の目で全画像が別人に見える保証ではありません。「日本人」は創作上の設定としてプロンプトに記述しています。
-
-500人の年齢配分：6〜15歳5、16〜19歳35、20代85、30代90、40代90、50代80、60代60、70代40、80代15。作品用の配分で、人口統計ではありません。生年月日との整合性を確認し、撮影時点の年齢は別に保持します。
-
-公開CSVの18列：`name, name_kana, birth_date, address, email, phone, employer, workplace_address, workplace_phone, occupation, personal_number, payment_number, bank_name, bank_branch, bank_account_type, bank_account_number, account_holder_kana, face_path`。seed・連番・年齢ラベルは表示せず、seed等は管理用データに残します。
-
-顔・人物情報は合成です。実在者や連絡先の収集・照会はしません。メール・電話・住所は実在のものと偶然一致する可能性があるため、送信・発信・認証には使用しないでください。個人番号・カード番号は桁数を保ち、チェックサムを意図的に不正にしたテスト値です。
-
-## 検証と構成
-
-```powershell
+.venv/Scripts/python.exe -m generator doctor --config configs/example.json
 .venv/Scripts/python.exe -m unittest discover -s tests -v
-.venv/Scripts/python.exe scripts/verify_diverse_batch.py --config configs/realvis500_checkpoint.json
 ```
+
+テストは小さなフィクスチャを使って、CSV・画像・ZIP・相対パス・整合性検証等を確認します。GPU画像生成の全工程をテストで実行するわけではありません。
+
+## 10件のデータセットを新規生成
+
+`configs/example.json`は保存済みデータに依存しない10人分のサンプル設定です。
+
+```powershell
+.venv/Scripts/python.exe -X utf8 -u -m generator resume --config configs/example.json
+```
+
+顔写真 → プロフィール → 出力 → 検証 → ZIP → HTML確認の順に処理します。進捗はターミナルへ表示されます。中断する場合はCtrl+C、続行する場合は同じコマンドを再実行してください。同じ設定を複数のターミナルから同時実行しないでください。
+
+作業状態は`work/example/state.json`、採用原本は`work/example/originals/`へ保存します。出力先の`batch_id`も状態ファイルに記録されます。
+
+```powershell
+$batchState = Get-Content work/example/state.json -Raw -Encoding UTF8 | ConvertFrom-Json
+$batchDir = Join-Path outputs $batchState.batch_id
+Start-Process (Join-Path $batchDir index.html)
+```
+
+同じ設定で再実行すると完成済みのバッチを再利用します。別のデータセットを作る場合は新しい設定ファイル名を使用してください。
+
+## 設定を変更する
+
+```powershell
+Copy-Item configs/example.json configs/my_batch.json
+notepad configs/my_batch.json
+.venv/Scripts/python.exe -X utf8 -u -m generator resume --config configs/my_batch.json
+```
+
+| 設定 | 内容 |
+| --- | --- |
+| `count` | バッチの人数。1〜1000。`portrait_specs`も同じ人数分用意します。 |
+| `seed`, `face_seed_start` | プロフィール・画像生成の乱数設定 |
+| `as_of` | 年齢と生年月日の基準日。例では`2026-01-01`に固定。 |
+| `portrait_specs` | 1人ごとの年齢・外見・服装・背景・撮影条件 |
+| `diffusion.steps`, `guidance_scale` | 画像モデルの推論設定 |
+| `face_diversity.threshold` | 採用済み顔との類似度閾値。小さいほど候補が除外されやすくなります。 |
+| `face_diversity.max_attempts` | 1人あたりの生成試行上限。超過時は停止してエラーを表示。 |
+| `portrait_specs[].finish` | 最終寸法・JPEG品質・傾き・ぼけ・色・粒状感など |
+
+`portrait_specs`を増減した場合、`age_distribution`も実際の年齢配分に合わせて更新してください。この設定は既存の生成条件を保存するための形式で、コマンドだけで人数に応じた外見設定を自動作成する機能はありません。
+
+作業状態がある設定ファイルの内容を変更すると再開を拒否します。条件を変える場合は新しいファイル名を使ってください。
+
+## 出力形式と使い方
+
+完成時に`outputs/<batch_id>/`と同名のZIPを作成します。
+
+```text
+outputs/<batch_id>/
+  index.html           一覧・検索用HTML
+  profiles.csv         人物情報18列（UTF-8）
+  profiles.jsonl       同じ情報のJSONL
+  faces/               CSV・HTMLから相対パスで参照する画像
+  people.*             基本データ
+  profiles_admin.*     管理・連携用データ
+  generation.json      モデル・推論・仕上げの記録
+  manifest.json        ファイルのサイズ・SHA-256
+  README.txt           データ利用手順
+```
+
+`index.html`はブラウザーで直接開けます。外部ライブラリやサーバーは不要です。画像参照は`faces/person_<UUID>.jpg`という相対パスなので、フォルダ全体を別PCへ移して利用できます。CSV単体では写真は移動しません。番号・口座等は文字列として読み込むと先頭の0を保持できます。
+
+公開用CSVの列は`name, name_kana, birth_date, address, email, phone, employer, workplace_address, workplace_phone, occupation, personal_number, payment_number, bank_name, bank_branch, bank_account_type, bank_account_number, account_holder_kana, face_path`です。生成seedや管理用IDは管理データに保持します。
+
+## 実装と制約
+
+標準設定は1024px / 35 steps / DPM++ SDE Karras / fp16、CPU offloadを使用します。VAEは必要時にfp32へupcastします。顔の修復・美肌化・アップスケールは行いません。
+
+YuNetで単一顔を検出し、SFaceで合成顔間の類似候補を除外します。この閾値は、人の目で全画像が別人に見える保証ではありません。「日本人」は付属プリセットの人物設定であり、国籍・属性を判定する仕組みではありません。
+
+プロフィールは合成データです。住所・メール・電話は実在のものと偶然一致する可能性があり、送信・発信・認証には使用しないでください。個人番号・カード番号は桁数を保ち、チェックサムを意図的に不正にしたテスト値です。
+
+## ディレクトリ構成・追加資料
 
 | パス | 内容 |
 | --- | --- |
-| `generator/` | 生成、仕上げ、CSV/HTML/ZIP出力・検証 |
-| `configs/` | 固定条件。既存stateと異なる設定への変更時は再開を拒否 |
-| `scripts/` | モデル取得、進捗、移行、検証 |
-| `schemas/`, `tests/` | 形式定義、整合性・復元等のテスト |
-| `reports/` | 検証結果・制作記録 |
-| `docs/HISTORY.md` | StyleGAN/Qwen・質感調整の履歴 |
-| `models/`, `work/`, `outputs/`, `deliverables/`, `transfer/` | ローカル生成物。Git管理対象外 |
+| `generator/` | 顔・プロフィール生成、画像仕上げ、出力と検証 |
+| `configs/example.json` | 新規生成用の10人サンプル設定 |
+| `configs/` | サンプル・過去のバッチ設定 |
+| `scripts/` | モデル取得、進捗確認、データ検証、保存状態の復元 |
+| `schemas/`, `tests/` | データ形式とテスト |
+| `models/`, `work/`, `outputs/` | ローカル生成物。Git管理対象外 |
 
-新しい実験では既存の設定・保存状態を直接変更せず、新しいファイル名の設定を作成してください。`scripts/init_checkpoint500.py`等は今回の初期化用で、復元後の通常再開には不要です。
+- [既存500人サンプル・保存状態の取得と復元](docs/RELEASE_500.md)
+- [過去の実験記録](docs/HISTORY.md)
+- `reports/`：過去のバッチの検証結果。標準セットアップには不要です。
+
+`scripts/init_*`、`run_realvis1000.py`などは過去のバッチ用補助スクリプトです。新規生成は上記の`python -m generator ... --config ...`から実行してください。

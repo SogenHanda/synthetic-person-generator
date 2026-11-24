@@ -1,13 +1,13 @@
-# 500人版・RTX 4090移行用チェックポイント
+# 500人サンプルデータ・保存状態
 
-500人分の生成を完了し、このPCでの追加生成を停止しました。
+生成済みの500人分をサンプルとして配布しています。Windowsで新しく環境を構築して生成する場合は、まずリポジトリ直下のREADMEを参照してください。このサンプルの取得・復元は標準セットアップには不要です。
 
 完成データだけを使う場合は`people_500.zip`をダウンロード・展開し、`index.html`を開いてください。`profiles.csv`と`faces/`は相対パスでつながっているため、フォルダごと別PCへ移せます。
 
 続きの生成も移す場合はリポジトリをcloneし、READMEの手順でPython環境を作成してください。その後：
 
 ```powershell
-gh release download checkpoint-500-20261124 --repo SogenHanda/newmedia-synthetic-people --pattern "checkpoint500.*" --dir transfer/checkpoint500
+gh release download checkpoint-500-20261124 --repo SogenHanda/synthetic-person-generator --pattern "checkpoint500.*" --dir transfer/checkpoint500
 .venv/Scripts/python.exe scripts/migration_bundle.py restore transfer/checkpoint500/checkpoint500.parts.json
 ```
 

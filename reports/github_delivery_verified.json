@@ -1,7 +1,7 @@
 {
-  "repository": "https://github.com/SogenHanda/newmedia-synthetic-people",
+  "repository": "https://github.com/SogenHanda/synthetic-person-generator",
   "private": true,
-  "release": "https://github.com/SogenHanda/newmedia-synthetic-people/releases/tag/checkpoint-500-20261124",
+  "release": "https://github.com/SogenHanda/synthetic-person-generator/releases/tag/checkpoint-500-20261124",
   "all_remote_asset_hashes_match_local": true,
   "assets": [
     {

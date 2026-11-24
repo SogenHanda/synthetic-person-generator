@@ -9,9 +9,9 @@ from .common import ROOT,read_json
 def main():
     if hasattr(sys.stdout,'reconfigure'):
         sys.stdout.reconfigure(encoding='utf-8')
-    parser=argparse.ArgumentParser(description='Local StyleGAN + Qwen synthetic person test batches')
+    parser=argparse.ArgumentParser(description='Synthetic Person Generator: local portraits, profiles, and portable datasets')
     parser.add_argument('command',choices=['doctor','faces','profiles','export','validate','package','preview','resume'])
-    parser.add_argument('--config',default='configs/realvis500_checkpoint.json')
+    parser.add_argument('--config',default='configs/example.json')
     parser.add_argument('--limit',type=int)
     args=parser.parse_args()
     if args.command=='doctor':
